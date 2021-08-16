@@ -1,0 +1,26 @@
+{
+  "name": "@juliannemarik/telemetry-dictionary",
+  "version": "1.0.0",
+  "description": "a WIP prototype for a shareable telemetry dictionary",
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "ts-node src/dictionaries/hub.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juliannemarik/telemetry-dictionary.git"
+  },
+  "author": "Julianne Crawford",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/juliannemarik/telemetry-dictionary/issues"
+  },
+  "homepage": "https://github.com/juliannemarik/telemetry-dictionary#readme",
+  "devDependencies": {
+    "@types/node": "^16.6.1",
+    "lodash": "^4.17.21",
+    "ts-node": "^10.2.0",
+    "typescript": "^4.3.5"
+  }
+}
