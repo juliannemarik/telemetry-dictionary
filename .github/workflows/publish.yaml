@@ -5,22 +5,43 @@ on:
     branches: [ master ]
 
 jobs:
-  publish:
+  init:
     runs-on: ubuntu-latest
-    steps:
+    steps: 
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
         with:
           node-version: 10
       - run: npm install
       - run: npm run format
+
+  version:
+    needs: init
+    runs-on: ubuntu-latest
+    steps:
+      - id: version
+        uses: EndBug/version-check@v1
+      - name: "Manually Versioned"
+        if: steps.version.outputs.changed == 'true'
+        run: |
+          echo "The package has already been manually versioned"
+      - name: "Automatically Versioned"
+        if: steps.version.outputs.changed == 'false'
+        run: npm version minor
+
+  publish:
+    needs: version
+    runs-on: ubuntu-latest
+    steps:
       - id: publish
         uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_TOKEN }}
-      - if: steps.publish.outputs.type == 'none'
+      - name: "Package not Published"
+        if: steps.publish.outputs.type == 'none'
         run: |
           echo "package was not published - version was not changed"
-      - if: steps.publish.outputs.type != 'none'
+      - name: "Package Published"
+        if: steps.publish.outputs.type != 'none'
         run: |
           echo "A ${{ steps.publish.outputs.type }} version of telemetry-dictionary was published: ${{ steps.publish.outputs.old-version }} => ${{ steps.publish.outputs.version }}"
