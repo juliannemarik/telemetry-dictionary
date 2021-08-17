@@ -16,7 +16,7 @@ jobs:
       - run: npm run format
 
   publish:
-    needs: version
+    needs: init
     runs-on: ubuntu-latest
     steps:
       - id: publish
