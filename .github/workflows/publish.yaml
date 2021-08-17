@@ -19,17 +19,7 @@ jobs:
     needs: init
     runs-on: ubuntu-latest
     steps:
-      - name: Check if version has been updated
-        id: check
-        uses: EndBug/version-check@v1
-
-      - name: Log when changed
-        if: steps.check.outputs.changed == 'true'
-        run: 'echo "Version change found in commit ${{ steps.check.outputs.commit }}! New version: ${{ steps.check.outputs.version }} (${{ steps.check.outputs.type }})"'
-
-      - name: Log when unchanged
-        if: steps.check.outputs.changed == 'false'
-        run: 'echo "No version change :/"'
+      - run: npm version minor
 
   publish:
     needs: version
@@ -39,9 +29,6 @@ jobs:
         uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_TOKEN }}
-      - name: "Package not Published"
-        if: steps.publish.outputs.type == 'none'
-        run: echo "package was not published - version was not changed"
       - name: "Package Published"
         if: steps.publish.outputs.type != 'none'
         run: |
