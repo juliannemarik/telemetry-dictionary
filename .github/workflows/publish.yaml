@@ -20,4 +20,7 @@ jobs:
           token: ${{ secrets.NPM_TOKEN }}
       - if: steps.publish.outputs.type == 'none'
         run: |
-          echo "Version was not changed"
+          echo "package was not published - version was not changed"
+      - if: steps.publish.outputs.type != 'none'
+        run: |
+          echo "A ${{ steps.publish.outputs.type }} version of telemetry-dictionary was published: ${{ steps.publish.outputs.old-version }} => ${{ steps.publish.outputs.version }}"
