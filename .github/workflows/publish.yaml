@@ -19,6 +19,6 @@ jobs:
         with:
           token: ${{ secrets.NPM_TOKEN }}
       
-      - if: steps.publish.outputs.type = 'none'
+      - if: steps.publish.outputs.type == 'none'
       run: |
         echo "Version was not changed"
