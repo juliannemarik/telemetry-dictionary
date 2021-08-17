@@ -5,20 +5,16 @@ on:
     branches: [ master ]
 
 jobs:
-  init:
+  publish:
+    needs: init
     runs-on: ubuntu-latest
-    steps: 
+    steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
         with:
           node-version: 10
       - run: npm install
       - run: npm run format
-
-  publish:
-    needs: init
-    runs-on: ubuntu-latest
-    steps:
       - id: publish
         uses: JS-DevTools/npm-publish@v1
         with:
