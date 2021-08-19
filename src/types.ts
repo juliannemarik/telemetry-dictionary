@@ -3,10 +3,16 @@ export interface ITelemetryLabel {
   definition?: string;
 }
 
+export interface ITelemetryElement {
+  id: string;
+  definition?: string;
+}
+
 export interface ITelemetryAction {
   id: string;
   definition?: string;
   labels: { [key: string]: ITelemetryLabel };
+  elements: { [key:string]: ITelemetryElement };
 }
 
 export interface ITelemetryCategory {

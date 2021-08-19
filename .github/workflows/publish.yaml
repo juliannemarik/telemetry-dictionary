@@ -15,13 +15,16 @@ jobs:
       - run: npm install
       - run: npm run format
 
-      - id: version
+      - id: check
         uses: EndBug/version-check@v1
+        with:
+          file-url: https://unpkg.com/@juliannemarik/telemetry-dictionary/package.json
+          static-checking: localIsNew
       - name: "Manually Versioned"
-        if: steps.version.outputs.changed == 'true'
+        if: steps.check.outputs.changed == 'true'
         run: echo "The package has already been manually versioned"
       - name: "Automatically Versioned"
-        if: steps.version.outputs.changed == 'false'
+        if: steps.check.outputs.changed == 'false'
         run: npm version minor
 
       - id: publish

@@ -50,6 +50,37 @@ class EngagementCategory implements ITelemetryCategory {
           id: 'Remove',
           definition: 'remove from favorites',
         }
+      },
+      elements: {
+        actionsMenu: {
+          id: 'Actions Menu'
+        },
+        stickyHero: {
+          id: 'Sticky Hero'
+        }
+      },
+    },
+    download: {
+      id: 'Download',
+      definition: 'download an item',
+      labels: {
+        open: {
+          id: 'Open'
+        },
+        start: {
+          id: 'Start'
+        }
+      },
+      elements: {
+        stickyHero: {
+          id: 'Sticky Hero'
+        },
+        contentHero: {
+          id: 'Content Hero'
+        },
+        downloadCard: {
+          id: 'Download Card'
+        }
       }
     }
   };
