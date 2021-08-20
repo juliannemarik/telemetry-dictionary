@@ -6,13 +6,12 @@ export interface ITelemetryLabel {
 export interface ITelemetryElement {
   id: string;
   definition?: string;
+  labels: { [key:string]: ITelemetryLabel }
 }
-
 export interface ITelemetryAction {
   id: string;
   definition?: string;
-  labels: { [key: string]: ITelemetryLabel };
-  elements: { [key:string]: ITelemetryElement };
+  elements: { [key: string]: ITelemetryElement };
 }
 
 export interface ITelemetryCategory {

@@ -14,7 +14,8 @@
     "prepare": "npm run build",
     "prepublishOnly": "npm run lint",
     "preversion": "npm run lint",
-    "dev": "ts-node src/dictionaries/hub.ts"
+    "dev": "ts-node src/dictionaries/hub.ts",
+    "dictionaryRollup": "ts-node scripts/dictionaryRollup.ts"
   },
   "repository": {
     "type": "git",
@@ -29,6 +30,7 @@
   "devDependencies": {
     "@types/node": "^16.6.1",
     "lodash": "^4.17.21",
+    "pluralize": "^8.0.0",
     "prettier": "^2.3.2",
     "ts-node": "^10.2.0",
     "tslint": "^6.1.3",
