@@ -1,1 +1,1 @@
-export * from './hub';
+export { hubTelemetryDictionary } from './hub';
