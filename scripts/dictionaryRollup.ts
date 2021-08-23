@@ -14,11 +14,10 @@ const dictionaryRollup = () => {
   let output = {};
   const ignore = [ 'base.ts', 'index.ts' ];
   const dictionaryFiles = readdir(DICTIONARY_DIRECTORY_PATH, {}).filter(dictionary => !ignore.includes(dictionary));
-  
-  rmdir(ROLLED_DICTIONARY_DIRECTORY_PATH, { recursive: true });
-  mkdir(ROLLED_DICTIONARY_DIRECTORY_PATH);
 
   dictionaryFiles.forEach(file => {
+    console.log(`${file} dictionary is being rolled up...`);
+    
     const DICTIONARY_PATH = `${DICTIONARY_DIRECTORY_PATH}/${file}`;
     const ROLLED_DICTIONARY_PATH = `${ROLLED_DICTIONARY_DIRECTORY_PATH}/${file.split('.').shift()}.json`;
 
@@ -61,3 +60,5 @@ const rollup = (key:string, value:any, configAcc:object, rollupAcc:object = {}) 
 }
 
 dictionaryRollup();
+
+export {};

@@ -55,17 +55,17 @@ const engagementCategory:ITelemetryCategory = {
           }
         },
         stickyHero: {
-          id: 'Actions Menu',
+          id: 'Sticky Hero',
           labels: {
             open: { id: 'Open' },
             start: { id: 'Start' }
           }
         },
         downloadCard: {
-          id: 'Actions Menu',
+          id: 'Download Card',
           labels: {
-            open: { id: 'Open' },
-            start: { id: 'Start' }
+            complete: { id: 'Complete' },
+            error: { id: 'Error' }
           }
         }
       }
