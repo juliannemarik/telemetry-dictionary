@@ -49,28 +49,28 @@
         "open": {
           "category": "Engagement",
           "action": "Download",
-          "element": "Actions Menu",
+          "element": "Sticky Hero",
           "label": "Open"
         },
         "start": {
           "category": "Engagement",
           "action": "Download",
-          "element": "Actions Menu",
+          "element": "Sticky Hero",
           "label": "Start"
         }
       },
       "downloadCard": {
-        "open": {
+        "complete": {
           "category": "Engagement",
           "action": "Download",
-          "element": "Actions Menu",
-          "label": "Open"
+          "element": "Download Card",
+          "label": "Complete"
         },
-        "start": {
+        "error": {
           "category": "Engagement",
           "action": "Download",
-          "element": "Actions Menu",
-          "label": "Start"
+          "element": "Download Card",
+          "label": "Error"
         }
       }
     }
